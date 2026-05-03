@@ -144,7 +144,7 @@
         
         local Verdana = RegisterFont("Verawdawdawdwaddana", 400, "Normal", {
             Id = "Verawdawdawdwaddana.ttf",
-            Font = game:HttpGet("https://github.com/i77lhm/storage/raw/refs/heads/main/fonts/fs-tahoma-8px.ttf"),
+            Font = game:HttpGet("https://github.com/LunarWareRoblox/Assets/raw/refs/heads/main/Library/Assets/fs-tahoma-8px.ttf"),
         })
 
         Library.Font = Font.new(Verdana, Enum.FontWeight.Regular, Enum.FontStyle.Normal);
