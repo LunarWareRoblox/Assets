@@ -4906,7 +4906,7 @@
                     BorderColor3 = rgb(0, 0, 0);
                     BorderSizePixel = 0;
                     AutomaticSize = Enum.AutomaticSize.XY;
-                    BackgroundColor3 = rgb(52, 52, 52)
+                    BackgroundColor3 = themes.preset.background
                 });
                 
                 Items.Inline = Library:Create( "Frame" , {
