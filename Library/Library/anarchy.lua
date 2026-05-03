@@ -1893,7 +1893,7 @@
                         Parent = Items.Watermark;
                         Name = "\0";
                         BackgroundTransparency = 1;
-                        Position = dim2(0, 14, 0, -2);
+                        Position = dim2(0, 11, 0, -2);
                         BorderSizePixel = 0;
                         AutomaticSize = Enum.AutomaticSize.XY;
                         TextSize = 12;
@@ -4916,7 +4916,7 @@
                     BorderColor3 = rgb(0, 0, 0);
                     BorderSizePixel = 0;
                     AutomaticSize = Enum.AutomaticSize.XY;
-                    BackgroundColor3 = rgb(5, 5, 5)
+                    BackgroundColor3 = themes.preset.background
                 });
                 
                 Library:Create( "UIPadding" , {
