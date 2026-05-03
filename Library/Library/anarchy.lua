@@ -4853,17 +4853,17 @@
 
     -- Notification Library
         -- IGNORE: , TweenInfo.new(1, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out)
-        function Notifications:RefreshNotifications() 
-            local offset = 50
-            
-            for i, v in Notifications.Notifs do
-                local Position = vec2(20, offset)
-                Library:Tween(v, {Position = dim_offset(Position.X, Position.Y)})
-                offset += (v.AbsoluteSize.Y + 10)
-            end
-
-            return offset
-        end
+		function Notifications:RefreshNotifications() 
+		    local offset = 20 -- marge depuis le bas
+		    
+		    for i = #Notifications.Notifs, 1, -1 do
+		        local v = Notifications.Notifs[i]
+		        if v and v.Parent then
+		            Library:Tween(v, {Position = dim2(0.5, 0, 1, -(offset + v.AbsoluteSize.Y))})
+		            offset += v.AbsoluteSize.Y + 5
+		        end
+		    end
+		end
         
         function Notifications:FadeNotifs(path, is_fading)
             local fading = is_fading and 1 or 0 
