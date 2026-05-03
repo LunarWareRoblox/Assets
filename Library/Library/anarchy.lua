@@ -1893,7 +1893,7 @@
                         Parent = Items.Watermark;
                         Name = "\0";
                         BackgroundTransparency = 1;
-                        Position = dim2(0, 11, 0, -2);
+                        Position = dim2(0, 2, 0, -2);
                         BorderSizePixel = 0;
                         AutomaticSize = Enum.AutomaticSize.XY;
                         TextSize = 12;
