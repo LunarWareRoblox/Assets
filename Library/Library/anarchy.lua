@@ -4887,9 +4887,9 @@
             end
         end 
         
-        function Notifications:Create(properties)
+		function Notifications:Create(properties)
 		    local Cfg = {
-		        Name = properties.Name or "This is a title!";
+		        Name = properties.Name or "Notification";
 		        Lifetime = properties.LifeTime or 3;
 		        Items = {};
 		    }
@@ -4929,11 +4929,13 @@
 		            Color = rgbseq{rgbkey(0, themes.preset.inline), rgbkey(1, themes.preset.gradient)}
 		        }); Library:SaveGradient(grad, "Selected");
 		
+		        -- Barre bleue en haut bien cadrée comme le watermark
 		        Items.Accent = Library:Create("Frame", {
 		            Name = "\0";
 		            Parent = Items.Outline;
 		            BorderColor3 = rgb(0, 0, 0);
-		            Size = dim2(1, 0, 0, 2);
+		            Position = dim2(0, 0, 0, 0); -- collée tout en haut
+		            Size = dim2(1, 0, 0, 2);     -- toute la largeur
 		            BorderSizePixel = 0;
 		            BackgroundColor3 = themes.preset.accent
 		        }); Library:Themify(Items.Accent, "accent", "BackgroundColor3")
@@ -4962,7 +4964,6 @@
 		            Text = Cfg.Name;
 		            Name = "\0";
 		            BackgroundTransparency = 1;
-		            Position = dim2(0, 5, 0, -2);
 		            BorderSizePixel = 0;
 		            AutomaticSize = Enum.AutomaticSize.XY;
 		            TextSize = 12;
@@ -4975,31 +4976,18 @@
 		        });
 		
 		        Library:Create("UIPadding", {
-		            PaddingTop = dim(0, 5);
-		            PaddingBottom = dim(0, 2);
+		            PaddingTop = dim(0, 8);
+		            PaddingBottom = dim(0, 4);
 		            Parent = Items.Text;
-		            PaddingRight = dim(0, 5);
-		            PaddingLeft = dim(0, 5)
+		            PaddingRight = dim(0, 8);
+		            PaddingLeft = dim(0, 8)
 		        });
-		
-		        Items.AccentLine = Library:Create("Frame", {
-		            Parent = Items.Outline;
-		            Name = "\0";
-		            Position = dim2(0, 0, 1, -1);
-		            BorderColor3 = rgb(0, 0, 0);
-		            Size = dim2(1, 0, 0, 1);
-		            BorderSizePixel = 0;
-		            ZIndex = 100;
-		            BackgroundColor3 = themes.preset.accent
-		        }); Library:Themify(Items.AccentLine, "accent", "BackgroundColor3")
 		    end
 		
 		    local index = #Notifications.Notifs + 1
 		    Notifications.Notifs[index] = Items.Outline
 		
 		    Notifications:RefreshNotifications()
-		
-		    Library:Tween(Items.AccentLine, {Size = dim2(0, 0, 0, 1)}, TweenInfo.new(Cfg.Lifetime, Enum.EasingStyle.Quint, Enum.EasingDirection.InOut))
 		
 		    task.spawn(function()
 		        task.wait(Cfg.Lifetime)
