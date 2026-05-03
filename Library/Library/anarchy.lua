@@ -8,18 +8,18 @@
     local color, rgb, hex, hsv, rgbseq, rgbkey, numseq, numkey = Color3.new, Color3.fromRGB, Color3.fromHex, Color3.fromHSV, ColorSequence.new, ColorSequenceKeypoint.new, NumberSequence.new, NumberSequenceKeypoint.new
 
     getgenv().Library = {
-        Directory = "Bbot v3",
-        Library.Folders = {
+        Directory = "LunarWare",
+        Folders = {
             "/fonts",
             "/Library",
             "/Library/Configs",
         },
         Flags = {},
         ConfigFlags = {},
-        Connections = {},   
+        Connections = {},
         Notifications = {Notifs = {}},
-        OpenElement = {}; -- type: table or userdata
-        EasingStyle = Enum.EasingStyle.Quint;
+        OpenElement = {},
+        EasingStyle = Enum.EasingStyle.Quint,
         TweeningSpeed = 0.25
     }
     
